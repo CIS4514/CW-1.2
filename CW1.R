@@ -71,6 +71,34 @@ summarise_vector<- function(x) {
   ))
 }
 
+
 #Missing values in R are represented by NA. In this function, is.na(x) identifies missing values, while sum(is.na(x)) counts how many missing values are present in the vector.
 # When some values are missing, the function uses na.rm = TRUE in min(), max(), mean(), and median(). This tells R to ignore the missing values when calculating. But, length(x) still counts all elements, including missing values.
 # When all values are missing, the function checks this using all(is.na(x)). If the condition is true, the minimum, maximum, mean, and median are assigned NA_real_, because these statistics cannot be calculated. The function still returns the total length and the number of missing values.
+
+#test - 3
+classify_number("hello")   
+classify_number(8)
+classify_number(-4)
+classify_number(7)
+classify_number(0)
+classify_number(2.5)
+classify_number(-3.7)
+
+#test - 4
+summarise_vector(c(1, 2, 3, 4, 5))
+summarise_vector(c(-5, -3, -1))
+summarise_vector(c(-2, 0, 4))
+summarise_vector(10)
+summarise_vector(c(4, 4, 4, 4))
+summarise_vector(c(1, 2, 3, 4))
+summarise_vector(c(1.5, 2.5, 3.5))
+summarise_vector(c(1, NA, 3, 5))
+summarise_vector(c(NA, 2, NA, 4))
+summarise_vector(c(NA, NA, NA, NA))
+summarise_vector(c(NA_real_, NA_real_))
+
+# Invalid inputs: please run individually
+summarise_vector(c("a", "b", "c"))
+summarise_vector("hello")
+summarise_vector(list(1, 2, 3))
