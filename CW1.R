@@ -29,7 +29,7 @@ classify_number <- function(x) {
     groupa <- "even-or-odd classification is not applicable"
   }
   
-  cat("Group A number is ",sign_classify, "and", groupa)
+  cat("Input number", x, "is ",sign_classify, "and", groupa)
 }  
 
 
