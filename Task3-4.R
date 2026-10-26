@@ -63,8 +63,11 @@ axis(1, at = rape$breaks) #adjust the bin labels (x axis) for readability
 ##################### Analysis #######################################
 #Box plot
 #The box plots provide information about the central tendency, variability, and potential outliers of the four variables in the USArrests dataset.
-#The murder and assault box plots show considerable variation between states, but no potential outliers are identified. The urban population box plot indicates 
-#that the median urban population percentage is approximately 66%, with most states having values between 54% and 78%.
+#The murder and assault box plots show considerable variation between states, but no potential outliers are identified. Lowest murder arrest is 1 and highest murder arrest is 17, 
+#while most states has arrest rate between 4 and 11 per 100 thousand. 
+
+#The urban population box plot indicates that the median urban population percentage is approximately 66%, 
+#with most states having values between 54% and 78%. Minimum urban population is 32% and maximum urban population is 91%.
 
 #The Rape box plot identifies two potential outliers above the upper whisker, representing states with unusually high rape arrest rates compared with the 
 #remaining states. These observations may contribute to the right skewness observed in the Rape histogram.
