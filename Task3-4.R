@@ -10,6 +10,33 @@ library("GGally")
 data <- USArrests #load dataset
 
 #REQUIREMENT 3
+#creating boxplot for murder, assault, UrbanPop, Rape
+data <- USArrests
+
+data <- USArrests
+
+# Calculate quartiles
+rq <- quantile(data$Rape)
+mq <- quantile(data$Murder)
+uq <- quantile(data$UrbanPop)
+aq <- quantile(data$Assault)
+
+# Boxplots
+par(mfrow = c(2, 2))
+
+boxplot(data$Rape, main = "Rape", col = "red")
+text(x = 1.25, y = rq, labels = round(rq, 0), pos = 4, cex = 0.8) 
+
+boxplot(data$Murder, main = "Murder", col = "red")
+text(x = 1.25, y = mq, labels = round(mq, 0), pos = 4, cex = 0.8)
+
+boxplot(data$UrbanPop, main = "UrbanPop", col = "red")
+text(x = 1.25, y = uq, labels = round(uq, 0), pos = 4, cex = 0.8)
+
+boxplot(data$Assault, main = "Assault", col = "red")
+text(x = 1.25, y = aq, labels = round(aq, 0), pos = 4, cex = 0.8)
+
+
 
 #creating histogram for murder, assault, UrbanPop, Rape
 par(mfrow = c(2, 2)) # create 2x2 plot 
@@ -34,6 +61,18 @@ axis(1, at = rape$breaks) #adjust the bin labels (x axis) for readability
 
 
 ##################### Analysis #######################################
+#Box plot
+#The box plots provide information about the central tendency, variability, and potential outliers of the four variables in the USArrests dataset.
+#The murder and assault box plots show considerable variation between states, but no potential outliers are identified. The urban population box plot indicates 
+#that the median urban population percentage is approximately 66%, with most states having values between 54% and 78%.
+
+#The Rape box plot identifies two potential outliers above the upper whisker, representing states with unusually high rape arrest rates compared with the 
+#remaining states. These observations may contribute to the right skewness observed in the Rape histogram.
+
+#Overall,the box plots suggest that the Rape variable contains two potential outliers, while the other three variables did not.
+
+
+
 # Murder Histogram 
 # It seems to be right skewed which suggest most states having lower to moderate murder arrest rates. 
 # This suggests frequency of high murder arrests decreases as the murder rate increases.
