@@ -11,9 +11,6 @@ data <- USArrests #load dataset
 
 #REQUIREMENT 3
 #creating boxplot for murder, assault, UrbanPop, Rape
-data <- USArrests
-
-data <- USArrests
 
 # Calculate quartiles
 rq <- quantile(data$Rape)
@@ -26,7 +23,7 @@ par(mfrow = c(2, 2)) #2x2 plot
 
 #Rape
 boxplot(data$Rape, main = "Rape", col = "red")
-text(x = 1.2, y = rq, labels = round(rq, 0), pos = 4, cex = 0.8) 
+text(x = 1.2, y = rq, labels = round(rq, 0), pos = 4, cex = 0.8) # add the quartile value to boxplot for readability
 #Murder
 boxplot(data$Murder, main = "Murder", col = "red")
 text(x = 1.2, y = mq, labels = round(mq, 0), pos = 4, cex = 0.8)
@@ -154,6 +151,8 @@ print(ggpairs(
   diag = list(continuous = "densityDiag")
 ))
 
+#ref Holtz, Y. (2018). The R graph gallery – help and inspiration for R charts. [online] The R Graph Gallery. Available at: https://r-graph-gallery.com/ [Accessed 26 Oct. 2026].
+
 ########################## Analysis ###########################
 # Heatmap 
 # The heatmap displaying the correlation coefficient between the variables.
@@ -179,3 +178,4 @@ print(ggpairs(
 # Some notable difference, between assault and rape increases from 0.67 using Pearson to 0.71 using Spearman. Similarly, the correlation between Murder and Rape increases from 0.56 to 0.68.
 # In conclusion, both methods identify murder and assault as the strongest relationship and murder and urban population as the weakest. 
 # The overall findings are consistent, although Spearman reveals somewhat stronger associations for certain variable pairs.
+
