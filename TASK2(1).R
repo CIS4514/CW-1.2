@@ -18,6 +18,14 @@ print(last_three)
 cat("====================== Data dimention ========================\n")
 print(dim(data))
 
+# what the dimension results mean
+# 50  4
+# 50 Rows = The 50 unique US States included in the study.
+# 4 Columns = The 4 variables being tracked per state:
+  # 1. Murder (Rate) | 2. Assault (Rate) | 3. UrbanPop (%) | 4. Rape (Rate)
+# Summary: we are working with  exactly 200 data points (50 x 4) 
+  
+
 #variable types
 cat("====================== Variable types ========================\n")
 print(sapply(data,class))
