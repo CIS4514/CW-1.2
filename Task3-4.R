@@ -22,19 +22,20 @@ uq <- quantile(data$UrbanPop)
 aq <- quantile(data$Assault)
 
 # Boxplots
-par(mfrow = c(2, 2))
+par(mfrow = c(2, 2)) #2x2 plot
 
+#Rape
 boxplot(data$Rape, main = "Rape", col = "red")
-text(x = 1.25, y = rq, labels = round(rq, 0), pos = 4, cex = 0.8) 
-
+text(x = 1.2, y = rq, labels = round(rq, 0), pos = 4, cex = 0.8) 
+#Murder
 boxplot(data$Murder, main = "Murder", col = "red")
-text(x = 1.25, y = mq, labels = round(mq, 0), pos = 4, cex = 0.8)
-
+text(x = 1.2, y = mq, labels = round(mq, 0), pos = 4, cex = 0.8)
+#UrbanPop
 boxplot(data$UrbanPop, main = "UrbanPop", col = "red")
-text(x = 1.25, y = uq, labels = round(uq, 0), pos = 4, cex = 0.8)
-
+text(x = 1.2, y = uq, labels = round(uq, 0), pos = 4, cex = 0.8)
+#Assault
 boxplot(data$Assault, main = "Assault", col = "red")
-text(x = 1.25, y = aq, labels = round(aq, 0), pos = 4, cex = 0.8)
+text(x = 1.2, y = aq, labels = round(aq, 0), pos = 4, cex = 0.8)
 
 
 
@@ -102,17 +103,17 @@ axis(1, at = rape$breaks) #adjust the bin labels (x axis) for readability
 
 #REQUIRMENT 4
 
-vars <- data[, c("Murder", "Assault", "UrbanPop", "Rape")]
+
 # Pearson correlation
 cat("Pearson correlation", "\n")
-pearson <- cor(vars, method = "pearson")
+pearson <- cor(data, method = "pearson")
 print(pearson) #print pearson correlation
 cat("\n") #add empty line
 
 
 # Spearman correlation
 cat("Spearman correlation", "\n")
-spearman <- cor(vars, method = "spearman")
+spearman <- cor(data, method = "spearman")
 print(spearman)
 
 #heatmaps
@@ -138,7 +139,7 @@ corrplot(spearman,
 # matrix plot
 #pearson
 print(ggpairs(
-  vars,
+  data,
   title = "Pearson",
   upper = list(continuous = wrap("cor", method = "pearson")), #upper triangle show the correlation coefficient
   lower = list(continuous = "points"), #lower triangle show the scatter plot
@@ -146,7 +147,7 @@ print(ggpairs(
 ))
 #spearman
 print(ggpairs(
-  vars,
+  data,
   title = "Spearman",
   upper = list(continuous = wrap("cor", method = "spearman")),
   lower = list(continuous = "points"),
