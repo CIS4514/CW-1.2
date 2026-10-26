@@ -1,4 +1,4 @@
-data("USArrests")
+data <- USArrests
 
 # The dataset includes three columns measuring different types of violent crime rates
 # and  a fourth column, UrbanPop that shows population stats 
@@ -6,29 +6,35 @@ data("USArrests")
 # QUESTION 1
 
 # DISPLAYING THE FIRST FOUR ROWS
-first_four <- head(USArrests, n=4)
+cat("====================== First four rows ========================\n")
+first_four <- head(data, n=4)
+print(first_four)
 
 # DISPLAYING THE LAST THREE ROWS
-last_three <- tail(USArrests, n=3)
-
+cat("====================== Last three rows ========================\n")
+last_three <- tail(data, n=3)
+print(last_three)
 # USArrests DATASET DIMENSIONS
-dim(USArrests)
+cat("====================== Data dimention ========================\n")
+print(dim(data))
 
 #variable types
-sapply(USArrests,class)
+cat("====================== Variable types ========================\n")
+print(sapply(data,class))
+
 
 #state names and missing-value counts.
-states <- rownames(USArrests)
+states <- rownames(data)
 states
 
-missing_counts <- rowSums(is.na(USArrests))
+missing_counts <- rowSums(is.na(data))
 missing_counts
 
 #data frame to see both names and missing-value counts
 data.frame(State = states, MissingValues = missing_counts)
 
-
-summary(USArrests)
+cat("====================== Summary ========================\n")
+print(summary(data))
 
 # validation function
 validate_data <- function(x){
@@ -64,8 +70,8 @@ validate_data <- function(x){
   has_out_of_bounds <- bad_murder || bad_assault || bad_urbanpop || bad_rape
   print(paste("Has values outside plausible ranges?:", has_out_of_bounds))
 }
-
-validate_data(USArrests)
+cat("========================= Data validation ==========================\n")
+validate_data(data)
 
 # DATA VALIDATION RESULTS & COMMENTARY FOR USARRESTS
 
